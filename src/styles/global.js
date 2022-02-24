@@ -33,4 +33,8 @@ export default createGlobalStyle`
     button,input{
         font-family: inherit;
     }
+    
+    figcaption{
+        display: none;
+    }
 `

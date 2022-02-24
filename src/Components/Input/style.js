@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     flex-direction: column;
+    position: relative;
     gap: 1px;
     span{
         color: var(--grey0);
@@ -43,6 +44,13 @@ export const Container = styled.div`
             -webkit-text-fill-color: var(--grey0);
         }
     }
+
+    .btn-show-hide{
+        position: absolute;
+        right: 10px;
+        top: 43px;
+        cursor: pointer;
+    }
     div{
         color: var(--primaryDisabled);
         font-size: 12px;
@@ -53,6 +61,10 @@ export const Container = styled.div`
             width:325px;
             height:48px;
             font-size: 16px;
+        }
+        .btn-show-hide{
+            right: 15px;
+            top: 47px;
         }
     }
 `

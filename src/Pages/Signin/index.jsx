@@ -6,6 +6,8 @@ import Logo from '../../images/Logo.svg'
 import {useForm} from 'react-hook-form'
 import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
+import api from '../../Services/API'
+import {toast} from 'react-toastify'
 
 
 const Signin = () => {
@@ -22,7 +24,18 @@ const Signin = () => {
     })
 
     const submitForm = (data) =>{
-        console.log(data)
+        const newData = {
+            name: data.name,
+            email: data.email,
+            password: data.password,
+            course_module: data.modulo,
+            bio: data.name,
+            contact: data.email,
+        }
+        api.post('/users',newData)
+        .then((_)=>toast.success('Conta criada com sucesso!',{
+            theme:'dark'
+        }))
     }
 
     return(
@@ -42,9 +55,9 @@ const Signin = () => {
                 <FancyForm onSubmit={handleSubmit(submitForm)}>
                     <Input label="Nome" type="text" placeholder="Digite aqui seu nome" register={register} name="name" error={errors.name?.message}/>
                     <Input label="Email" type="text" placeholder="Digite aqui seu email" register={register} name="email" error={errors.email?.message}/>
-                    <Input label="Senha" placeholder="Digite aqui sua senha" register={register} name="password" type="password" error={errors.password?.message}/>
-                    <Input label="Confirmar Senha" placeholder="Confirme aqui sua senha" register={register} name="confirm" type="password" error={errors.confirm?.message}/>
-                    <Selection/>
+                    <Input label="Senha" placeholder="Digite aqui sua senha" register={register} name="password" type="password" error={errors.password?.message} icon/>
+                    <Input label="Confirmar Senha" placeholder="Confirme aqui sua senha" register={register} name="confirm" type="password" error={errors.confirm?.message} icon/>
+                    <Selection register={register}/>
                     <Button type="submit">Cadastrar</Button>
                 </FancyForm>
             </Modal>

@@ -14,7 +14,7 @@ const theme = createTheme({
     }
 })
 
-const Selection = () =>{
+const Selection = ({register}) =>{
 
     const [module,setModule] = useState(1)
 
@@ -26,7 +26,7 @@ const Selection = () =>{
         <ThemeProvider theme={theme}>
             <Container>
                 <div className="label">Selecionar módulo</div>
-                <Select value={module} onChange={updateValue} variant="outlined" className="select" color="primary">
+                <Select value={module} onChange={updateValue} variant="outlined" className="select" color="primary" inputProps={{...register('modulo')}}>
                             <MenuItem value={1}>Primeiro Módulo</MenuItem>
                             <MenuItem value={2}>Segundo Módulo</MenuItem>
                             <MenuItem value={3}>Terceiro Módulo</MenuItem>

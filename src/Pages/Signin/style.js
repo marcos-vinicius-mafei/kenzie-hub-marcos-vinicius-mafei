@@ -66,9 +66,6 @@ export const Nav = styled.nav`
     justify-content: space-between;
     align-items: center;
     width: 300px;
-    figcaption{
-        display: none;
-    }
 
     button{
         width: 80px;
