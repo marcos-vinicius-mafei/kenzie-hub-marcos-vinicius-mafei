@@ -6,8 +6,13 @@ import * as yup from 'yup'
 import Button from '../../Components/Button'
 import {Container,Modal} from './style'
 import {FancyForm} from '../Signin/style'
+import api from '../../Services/API'
+import { Redirect, useHistory} from 'react-router-dom'
+import {toast} from 'react-toastify'
 
-const Login = () => {
+const Login = ({authenticated,setAuthenticated}) => {
+
+    const history = useHistory()
 
     const schema = yup.object().shape({
         email: yup.string().required('Esse campo é obrigatório').email('Email inválido'),
@@ -19,7 +24,20 @@ const Login = () => {
     })
 
     const submitForm = (data)=>{
-        console.log(data)
+        api.post('/sessions',data)
+        .then(response=>{
+            const {token,user} = response.data;
+            localStorage.setItem('@KenziHub:token', JSON.stringify(token))
+            localStorage.setItem('@KenziHub:user', JSON.stringify(user))
+            setAuthenticated(true)
+        })
+        .catch(err => toast.error('Email ou senha incorretos',{
+            theme:'dark'
+        }))
+    }
+
+    if(authenticated){
+        return <Redirect to='/'/>
     }
 
     return (
@@ -37,7 +55,7 @@ const Login = () => {
                 </FancyForm>
                 <div className="signin">
                     <p>Ainda não possui uma conta?</p>
-                    <Button>Cadastre-se</Button>
+                    <Button onClick={()=>history.push('/register')}>Cadastre-se</Button>
                 </div>
             </Modal>
         </Container>

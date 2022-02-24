@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const FancyButton = styled.button`
 
+cursor: pointer;
 width: 260px;
 height:38.5px;
 color: var(--grey0);

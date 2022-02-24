@@ -8,9 +8,10 @@ import * as yup from 'yup'
 import {yupResolver} from '@hookform/resolvers/yup'
 import api from '../../Services/API'
 import {toast} from 'react-toastify'
+import {Redirect, useHistory} from 'react-router-dom'
 
 
-const Signin = () => {
+const Signin = ({authenticated}) => {
 
     const schema = yup.object().shape({
         name: yup.string().required('Esse campo é obrigatório'),
@@ -23,19 +24,31 @@ const Signin = () => {
         resolver: yupResolver(schema)
     })
 
-    const submitForm = (data) =>{
+    const history = useHistory()
+
+    const submitForm = ({name,email,password,modulo}) =>{
         const newData = {
-            name: data.name,
-            email: data.email,
-            password: data.password,
-            course_module: data.modulo,
-            bio: data.name,
-            contact: data.email,
+            name:name,
+            email:email,
+            password:password,
+            course_module:modulo,
+            bio:name,
+            contact:email,
         }
         api.post('/users',newData)
-        .then((_)=>toast.success('Conta criada com sucesso!',{
+        .then((_)=>{
+            toast.success('Conta criada com sucesso!',{
+            theme:'dark'
+            })
+            history.push('/login')
+        })
+        .catch((err) =>toast.error('Ops! Algo deu errado',{
             theme:'dark'
         }))
+    }
+
+    if(authenticated){
+        return <Redirect to='/'/>
     }
 
     return(
@@ -45,7 +58,7 @@ const Signin = () => {
                         <img src={Logo} alt="Kenzie Hub"/>
                         <figcaption>Logo Kenzie Hub</figcaption>
                     </figure>
-                    <button>Voltar</button>
+                    <button onClick={()=>history.push('/login')}>Voltar</button>
                 </Nav>
             <Modal>
                 <div className="title">

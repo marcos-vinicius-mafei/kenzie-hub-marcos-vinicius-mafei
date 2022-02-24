@@ -74,6 +74,7 @@ export const Nav = styled.nav`
         color: var(--grey0);
         border-radius:4px;
         border: 0;
+        cursor: pointer;
     }
     @media screen and (min-width:600px){
         width: 370px;

@@ -1,6 +1,11 @@
+import {Redirect} from 'react-router-dom'
 
+const Home = ({authenticated}) =>{
 
-const Home = () =>{
+    if(!authenticated){
+       return <Redirect to='/login'/>
+    }
+
     return(
         <div>
             oi
