@@ -6,7 +6,9 @@ export const Container = styled.div`
     padding-left: 12px;
     padding-right: 12px;
     justify-content: space-between;
-    width: 280px;
+    min-width: 280px;
+    width: 100%;
+    max-width: 742px;
     height:49px;
     border-radius:4px;
     align-items: center;
@@ -20,5 +22,14 @@ export const Container = styled.div`
         font-size: 12px;
         color: var(--grey1);
         font-weight: normal;
+    }
+    transition: 0.6s;
+    &:hover{
+        transition: 0.6s;
+        cursor: pointer;
+        background-color: var(--grey2);
+        h4{
+            color: var(--grey0);
+        }
     }
 `

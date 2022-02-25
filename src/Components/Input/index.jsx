@@ -14,7 +14,7 @@ const Input = ({icon,name,register,error,label,...rest}) =>{
         <Container>
             <span>{label}</span>
            {icon? <input {...register(name)} {...rest} type={show? 'text' : 'password'}/> :  <input {...register(name)} {...rest} />} 
-            {icon && <div className="btn-show-hide" onClick={toggleShow}>{show? <MdVisibility size={'19px'} color={'#868E96'}/> : <MdVisibilityOff size={'19px'} color={'#868E96'}/>}</div>}
+            {icon && <div className="btn-show-hide" onClick={toggleShow}>{show? <MdVisibility size={'19px'}/> : <MdVisibilityOff size={'19px'}/>}</div>}
             {error && <div>{error}</div>}
         </Container>
     )

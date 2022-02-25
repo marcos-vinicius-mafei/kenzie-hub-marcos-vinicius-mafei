@@ -16,7 +16,7 @@ const theme = createTheme({
 
 const Selection = ({register}) =>{
 
-    const [module,setModule] = useState(1)
+    const [module,setModule] = useState('Primeiro módulo (Introdução ao Frontend)')
 
     const updateValue = (e) =>{
         setModule(e.target.value)
@@ -27,12 +27,12 @@ const Selection = ({register}) =>{
             <Container>
                 <div className="label">Selecionar módulo</div>
                 <Select value={module} onChange={updateValue} variant="outlined" className="select" color="primary" inputProps={{...register('modulo')}}>
-                            <MenuItem value={1}>Primeiro Módulo</MenuItem>
-                            <MenuItem value={2}>Segundo Módulo</MenuItem>
-                            <MenuItem value={3}>Terceiro Módulo</MenuItem>
-                            <MenuItem value={4}>Quarto Módulo</MenuItem>
-                            <MenuItem value={5}>Quinto Módulo</MenuItem>
-                            <MenuItem value={6}>Sexto Módulo</MenuItem>
+                            <MenuItem value={'Primeiro módulo (Introdução ao Frontend)'}>Primeiro Módulo</MenuItem>
+                            <MenuItem value={'Segundo módulo (Frontend Avançado)'}>Segundo Módulo</MenuItem>
+                            <MenuItem value={'Terceiro módulo (Introdução ao Backend)'}>Terceiro Módulo</MenuItem>
+                            <MenuItem value={'Quarto módulo (Backend Avançado)'}>Quarto Módulo</MenuItem>
+                            <MenuItem value={'Quinto módulo (Backend Avançado pt.2)'}>Quinto Módulo</MenuItem>
+                            <MenuItem value={'Sexto módulo (Trilha de empregabilidade)'}>Sexto Módulo</MenuItem>
                 </Select>
             </Container>
         </ThemeProvider>

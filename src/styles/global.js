@@ -8,6 +8,10 @@ export default createGlobalStyle`
         outline: 0;
     }
 
+    .App{
+        min-height: 100vh;
+    }
+
     :root{
         --primary:#FF577F;
         --primary50:#FF427F;
@@ -19,6 +23,7 @@ export default createGlobalStyle`
         --grey0:#F8F9FA;
         --success:#3FE864;
         --negative:#E83F5B;
+        --courtain: rgba(0, 0, 0, 0.623);
     }
 
     body{

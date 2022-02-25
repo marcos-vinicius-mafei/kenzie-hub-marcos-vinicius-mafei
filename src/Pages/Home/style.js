@@ -13,7 +13,9 @@ export const Container = styled.div`
         gap: 15px;
         padding-top:9px;
         padding-bottom: 9px;
-        width: 300px;
+        width: 93%;
+        max-width: 780px;
+        min-width:300px;
         h1{
             color: var(--grey0);
             font-size: 18px;
@@ -28,10 +30,20 @@ export const Container = styled.div`
         border-top: 1px solid var(--grey3);
         width: 100%;
     }
+    @media screen and (min-width:750px){
+        .infos{
+            flex-direction: row;
+            justify-content: space-between;
+            padding-top:19px;
+            padding-bottom:19px;
+        }
+    }
 `
 
 export const Nav = styled.nav`
-    width: 300px;
+    width: 93%;
+    max-width: 780px;
+    min-width:300px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,10 +65,13 @@ export const Skills = styled.div`
     flex-direction: column;
     gap: 21px;
     align-items: center;
+    width: 93%;
+    max-width: 780px;
+    min-width:300px;
     .menu{
         display: flex;
         justify-content: space-between;
-        width: 300px;
+        width: 100%;
         align-items: center;
         h3{
             color: var(--grey0);
@@ -71,12 +86,20 @@ export const Skills = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
+            transition:0.6s;
+            &:hover{
+                background-color: var(--grey2);
+                cursor: pointer;
+                transition:0.6s;
+            }
         }
     }
 `
 
 export const List = styled.div`
-    width: 300px;
+    width: 100%;
+    max-width: 780px;
+    min-width:300px;
     background-color: var(--grey3);
     border-radius:4px;
     padding-top: 22px;
@@ -85,9 +108,31 @@ export const List = styled.div`
     flex-direction: column;
     align-items: center;
     ul{
+        width: 95%;
         display: flex;
         flex-direction: column;
         gap: 16px;
         list-style: none;
     }
+    .empty{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        h3{
+            color: var(--grey0);
+            font-size: 14px;
+        }
+        p{
+            color: var(--grey1);
+            font-size: 12px;
+        }
+    }
+`
+
+export const Courtain = styled.div`
+    position: absolute;
+    background-color: var(--courtain) ;
+    width: 100%;
+    height: ${(props)=> `${props.height}px`}
 `

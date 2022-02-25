@@ -35,6 +35,11 @@ export const Modal = styled.div`
     form{
         button{
             background-color: var(--primary);
+            transition: 0.6s;
+            &:hover{
+                background-color: var(--primary50);
+                transition: 0.6s;
+            }
         }
     }
 
@@ -50,7 +55,12 @@ export const Modal = styled.div`
             font-size: 10px;
         }
         button{
-            background-color: var(--grey1)
+            background-color: var(--grey1);
+            transition: 0.6s;
+            &:hover{
+                background-color: var(--grey2);
+                transition: 0.6s;
+            }
         }
     }
 

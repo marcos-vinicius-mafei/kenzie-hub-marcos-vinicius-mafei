@@ -22,4 +22,18 @@ export const Buttons = styled.div`
         background-color: var(--grey1);
         border-radius:3px;
     }
+    @media screen and (min-width: 600px) {
+        width: 325px;
+        button{
+            font-size: 16px;
+        }
+        .btn--save{
+            width: 204px;
+            height: 48px;
+        }
+        .btn--remove{
+            width:98px;
+            height: 48px;
+        }
+    }
 `

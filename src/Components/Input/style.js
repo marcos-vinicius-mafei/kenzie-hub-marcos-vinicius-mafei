@@ -50,6 +50,12 @@ export const Container = styled.div`
         right: 10px;
         top: 43px;
         cursor: pointer;
+        color: var(--grey1);
+        transition: 0.6s;
+        &:hover{
+            transition: 0.6s;
+            color: var(--grey0);
+        }
     }
     div{
         color: var(--primaryDisabled);

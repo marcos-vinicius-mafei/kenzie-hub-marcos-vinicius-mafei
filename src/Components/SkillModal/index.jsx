@@ -7,6 +7,8 @@ import * as yup from 'yup'
 import Button from '../Button'
 import {Container} from './style'
 import { FancyForm } from '../../Pages/Signin/style'
+import api from '../../Services/API'
+import { toast } from 'react-toastify'
 
 
 const theme = createTheme({
@@ -24,12 +26,14 @@ const SkillModal = ({toggleModal}) =>{
 
     const [module,setModule] = useState('Iniciante')
 
+    const [token] = useState(JSON.parse(localStorage.getItem('@KenziHub:token')) || '')
+
     const updateValue = (e) =>{
         setModule(e.target.value)
     }
 
     const schema = yup.object().shape({
-        name: yup.string().required('Esse campo é obrigatório'),
+        title: yup.string().required('Esse campo é obrigatório'),
     })
 
     const {register, formState:{errors},handleSubmit} = useForm({
@@ -37,7 +41,19 @@ const SkillModal = ({toggleModal}) =>{
     })
 
     const submitForm = (data)=>{
-        console.log(data)
+        api.post('/users/techs',data,{
+            headers:{
+                Authorization: `Bearer ${token}`
+            }
+        })
+        .then((_)=>{toast.success('Tech criada com sucesso',{
+            theme: 'dark'
+        })
+            toggleModal()
+        })
+        .catch((err) => toast.error('Tech já existente',{
+            theme:'dark'
+        }))
     }
 
     return(
@@ -49,10 +65,10 @@ const SkillModal = ({toggleModal}) =>{
                 </div>
             </div>
             <FancyForm onSubmit={handleSubmit(submitForm)}>
-                <Input name="name" type="text" label="Nome" error={errors.name?.message} register={register} placeholder="Digite o nome da tecnologia"/>
+                <Input name="title" type="text" label="Nome" error={errors.title?.message} register={register} placeholder="Digite o nome da tecnologia"/>
                 <ThemeProvider theme={theme}>
                     <div className="label">Selecionar status</div>
-                        <Select value={module} onChange={updateValue} variant="outlined" className="select" color="primary" inputProps={{...register('level')}}>
+                        <Select value={module} onChange={updateValue} variant="outlined" className="select" color="primary" inputProps={{...register('status')}}>
                                 <MenuItem value={'Iniciante'}>Iniciante</MenuItem>
                                 <MenuItem value={'Intermediário'}>Intermediário</MenuItem>
                                 <MenuItem value={'Avançado'}>Avançado</MenuItem>
