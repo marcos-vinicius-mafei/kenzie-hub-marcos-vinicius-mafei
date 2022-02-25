@@ -14,6 +14,10 @@ export const Buttons = styled.div`
         color: var(--grey0);
         background-color: var(--primaryDisabled);
         border-radius:4px;
+        &:hover{
+            cursor: pointer;
+            background-color:var(--primary);
+        }
     }
     .btn--remove{
         width: 78px;
@@ -21,6 +25,10 @@ export const Buttons = styled.div`
         color: var(--grey0);
         background-color: var(--grey1);
         border-radius:3px;
+        &:hover{
+            cursor: pointer;
+            background-color: var(--grey2);
+        }
     }
     @media screen and (min-width: 600px) {
         width: 325px;

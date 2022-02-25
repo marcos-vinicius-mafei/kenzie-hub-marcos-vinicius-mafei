@@ -43,6 +43,12 @@ export const Modal = styled.div`
     }
     button{
         background-color: var(--primaryDisabled);
+        transition: 0.6s;
+        &:hover{
+            cursor: pointer;
+            background-color: var(--primary);
+            transition: 0.6s;
+        }
     }
 
     @media screen and (min-width: 600px){
@@ -74,7 +80,12 @@ export const Nav = styled.nav`
         color: var(--grey0);
         border-radius:4px;
         border: 0;
-        cursor: pointer;
+        transition: 0.6s;
+        &:hover{
+            cursor: pointer;
+            background-color: var(--grey2);
+            transition: 0.6s;
+        }
     }
     @media screen and (min-width:600px){
         width: 370px;

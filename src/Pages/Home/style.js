@@ -57,6 +57,12 @@ export const Nav = styled.nav`
         width: 55.5px;
         height: 32px;
         border-radius:4px;
+        transition: 0.6s;
+        &:hover{
+            background-color: var(--grey2);
+            cursor: pointer;
+            transition: 0.6s;
+        }
     }
 `
 

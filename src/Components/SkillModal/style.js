@@ -37,6 +37,12 @@ export const Container = styled.div`
                 border: 0;
                 background-color: transparent;
                 color: var(--grey1);
+                transition: 0.6s;
+                &:hover{
+                    color: var(--grey0);
+                    transition: 0.6s;
+                    cursor: pointer;
+                }
             }
         }
     }
@@ -56,6 +62,11 @@ export const Container = styled.div`
     form{
         button{
             background-color: var(--primary);
+            transition: 0.6s;
+            &:hover{
+                background-color: var(--primary50);
+                transition: 0.6s;
+            }
         }
     }
     @media screen and (min-width: 600px){
