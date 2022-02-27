@@ -9,6 +9,7 @@ import {yupResolver} from '@hookform/resolvers/yup'
 import api from '../../Services/API'
 import {toast} from 'react-toastify'
 import {Redirect, useHistory} from 'react-router-dom'
+import { motion } from "framer-motion"
 
 
 const Signin = ({authenticated}) => {
@@ -52,29 +53,36 @@ const Signin = ({authenticated}) => {
     }
 
     return(
-        <Container>
-                <Nav>
-                    <figure>
-                        <img src={Logo} alt="Kenzie Hub"/>
-                        <figcaption>Logo Kenzie Hub</figcaption>
-                    </figure>
-                    <button onClick={()=>history.push('/login')}>Voltar</button>
-                </Nav>
-            <Modal>
-                <div className="title">
-                    <h3>Crie sua conta</h3>
-                    <span><p>Rápido e grátis, vamos nessa</p></span>
-                </div>
-                <FancyForm onSubmit={handleSubmit(submitForm)}>
-                    <Input label="Nome" type="text" placeholder="Digite aqui seu nome" register={register} name="name" error={errors.name?.message}/>
-                    <Input label="Email" type="text" placeholder="Digite aqui seu email" register={register} name="email" error={errors.email?.message}/>
-                    <Input label="Senha" placeholder="Digite aqui sua senha" register={register} name="password" type="password" error={errors.password?.message} icon/>
-                    <Input label="Confirmar Senha" placeholder="Confirme aqui sua senha" register={register} name="confirm" type="password" error={errors.confirm?.message} icon/>
-                    <Selection register={register}/>
-                    <Button type="submit">Cadastrar</Button>
-                </FancyForm>
-            </Modal>
-        </Container>
+        <motion.div
+        initial={{opacity:0}}
+        animate={{opacity:1}}
+        exit={{opacity:0}}
+        transition={{duration: 2}}
+        >
+            <Container>
+                    <Nav>
+                        <figure>
+                            <img src={Logo} alt="Kenzie Hub"/>
+                            <figcaption>Logo Kenzie Hub</figcaption>
+                        </figure>
+                        <button onClick={()=>history.push('/login')}>Voltar</button>
+                    </Nav>
+                <Modal>
+                    <div className="title">
+                        <h3>Crie sua conta</h3>
+                        <span><p>Rápido e grátis, vamos nessa</p></span>
+                    </div>
+                    <FancyForm onSubmit={handleSubmit(submitForm)}>
+                        <Input label="Nome" type="text" placeholder="Digite aqui seu nome" register={register} name="name" error={errors.name?.message}/>
+                        <Input label="Email" type="text" placeholder="Digite aqui seu email" register={register} name="email" error={errors.email?.message}/>
+                        <Input label="Senha" placeholder="Digite aqui sua senha" register={register} name="password" type="password" error={errors.password?.message} icon/>
+                        <Input label="Confirmar Senha" placeholder="Confirme aqui sua senha" register={register} name="confirm" type="password" error={errors.confirm?.message} icon/>
+                        <Selection register={register}/>
+                        <Button type="submit">Cadastrar</Button>
+                    </FancyForm>
+                </Modal>
+            </Container>
+        </motion.div>
     )
 }
 
