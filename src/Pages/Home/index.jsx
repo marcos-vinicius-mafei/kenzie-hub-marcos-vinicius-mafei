@@ -24,7 +24,7 @@ const Home = ({authenticated,setAuthenticated}) =>{
 
     const [current,setCurrent] = useState('')
 
-    const [id] = useState(JSON.parse(localStorage.getItem('@KenziHub:user')).id || '')
+    const [id] = useState(JSON.parse(localStorage.getItem('@KenziHub:id')) || '')
 
     const [user] = useState(JSON.parse(localStorage.getItem('@KenziHub:user')) ||  '')
 

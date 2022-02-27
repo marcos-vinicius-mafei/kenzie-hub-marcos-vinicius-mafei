@@ -30,6 +30,7 @@ const Login = ({authenticated,setAuthenticated}) => {
             const {token,user} = response.data;
             localStorage.setItem('@KenziHub:token', JSON.stringify(token))
             localStorage.setItem('@KenziHub:user', JSON.stringify(user))
+            localStorage.setItem('@KenziHub:id', JSON.stringify(user.id))
             setAuthenticated(true)
         })
         .catch(err => toast.error('Email ou senha incorretos',{
