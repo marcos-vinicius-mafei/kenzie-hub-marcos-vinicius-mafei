@@ -9,6 +9,7 @@ import EditModal from '../../Components/EditModal'
 import { useEffect } from 'react'
 import api from '../../Services/API'
 import { useHistory } from 'react-router-dom'
+import { motion } from 'framer-motion'
 
 
 const Home = ({authenticated,setAuthenticated}) =>{
@@ -63,7 +64,12 @@ const Home = ({authenticated,setAuthenticated}) =>{
     }
 
     return(
-        <>
+        <motion.div
+            initial={{opacity:0}}
+            animate={{opacity:1}}
+            exit={{opacity:0}}
+            transition={{duration: 2}}
+        >
             {(modal || edit) && <Courtain height={height}/>}
             <Container>
                 {modal && <SkillModal toggleModal={toggleModal}/>}
@@ -97,7 +103,7 @@ const Home = ({authenticated,setAuthenticated}) =>{
                     </List>
                 </Skills>
             </Container>
-        </>
+        </motion.div>
     )
 }
 

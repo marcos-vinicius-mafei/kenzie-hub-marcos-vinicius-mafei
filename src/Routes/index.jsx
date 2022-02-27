@@ -3,6 +3,7 @@ import Home from '../Pages/Home'
 import Login from '../Pages/Login'
 import Signin from '../Pages/Signin'
 import { useState,useEffect } from 'react'
+import {AnimatePresence} from 'framer-motion'
 
 const Routes = () =>{
 
@@ -17,17 +18,19 @@ const Routes = () =>{
     },[authenticated])
 
     return(
-        <Switch>
-            <Route exact path="/">
-                <Home authenticated={authenticated} setAuthenticated={setAuthenticated}/>
-            </Route>
-            <Route path="/login">
-                <Login authenticated={authenticated} setAuthenticated={setAuthenticated}/>
-            </Route>
-            <Route path="/register">
-                <Signin authenticated={authenticated}/>
-            </Route>
-        </Switch>
+        <AnimatePresence>
+            <Switch>
+                <Route exact path="/">
+                    <Home authenticated={authenticated} setAuthenticated={setAuthenticated}/>
+                </Route>
+                <Route path="/login">
+                    <Login authenticated={authenticated} setAuthenticated={setAuthenticated}/>
+                </Route>
+                <Route path="/register">
+                    <Signin authenticated={authenticated}/>
+                </Route>
+            </Switch>
+        </AnimatePresence>
     )
 }
 

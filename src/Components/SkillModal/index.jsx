@@ -32,6 +32,8 @@ const SkillModal = ({toggleModal}) =>{
         setModule(e.target.value)
     }
 
+    const [anime,setAnime] = useState('show 3s')
+
     const schema = yup.object().shape({
         title: yup.string().required('Esse campo é obrigatório'),
     })
@@ -57,11 +59,14 @@ const SkillModal = ({toggleModal}) =>{
     }
 
     return(
-        <Container>
+        <Container style={{ animation: anime}}>
             <div className="header">
                 <div>
                     <h3>Cadastrar Tecnologia</h3>
-                    <button onClick={toggleModal}>X</button>
+                    <button onClick={()=>{
+                         setAnime('hide 3s')
+                         setTimeout(toggleModal,1000)
+                           }}>X</button>
                 </div>
             </div>
             <FancyForm onSubmit={handleSubmit(submitForm)}>

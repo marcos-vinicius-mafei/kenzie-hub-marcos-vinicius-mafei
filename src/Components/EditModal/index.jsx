@@ -30,6 +30,8 @@ const EditModal = ({toggleEdit,current}) =>{
 
     const [token] = useState(JSON.parse(localStorage.getItem('@KenziHub:token')) || '')
 
+    const [anime,setAnime] = useState('show 3s')
+
     useEffect(()=>{
         setId(current.id)
     },[id,current])
@@ -82,11 +84,14 @@ const EditModal = ({toggleEdit,current}) =>{
     }
 
     return(
-        <Container>
+        <Container style={{ animation: anime}}>
             <div className="header">
                 <div>
                     <h3>Tecnologia Detalhes</h3>
-                    <button onClick={toggleEdit}>X</button>
+                    <button onClick={()=>{
+                         setAnime('hide 3s')
+                         setTimeout(toggleEdit,1000)
+                           }}>X</button>
                 </div>
             </div>
             <FancyForm onSubmit={handleSubmit(submitForm)}>

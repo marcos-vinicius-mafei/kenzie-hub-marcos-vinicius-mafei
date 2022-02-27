@@ -3,6 +3,26 @@ import styled from "styled-components";
 
 
 export const Container = styled.div`
+    @keyframes show{
+        from {  margin-right:300px;
+                opacity: 0;
+        }
+        to { opacity: 1;
+            margin-right:0;
+        }
+    }
+    @keyframes hide{
+        from{
+            margin-left: 0;
+            opacity: 1;
+        }
+        to{
+            margin-left:300px;
+            opacity: 0;
+        }
+    }
+    /* animation:hide 3s;
+    animation: show 3s; */
     display: flex;
     flex-direction: column;
     align-items: center;

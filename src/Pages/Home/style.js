@@ -103,6 +103,16 @@ export const Skills = styled.div`
 `
 
 export const List = styled.div`
+
+    @keyframes show{
+        from {  margin-top:250px;
+                opacity: 0;
+        }
+        to { opacity: 1;
+            margin-top:0;
+        }
+    }
+    animation: show 3s;
     width: 100%;
     max-width: 780px;
     min-width:300px;
