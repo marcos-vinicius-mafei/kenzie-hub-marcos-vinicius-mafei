@@ -51,7 +51,8 @@ const SkillModal = ({toggleModal}) =>{
         .then((_)=>{toast.success('Tech criada com sucesso',{
             theme: 'dark'
         })
-            toggleModal()
+            setAnime('hide 3s')
+            setTimeout(toggleModal,1000)
         })
         .catch((err) => toast.error('Tech já existente',{
             theme:'dark'

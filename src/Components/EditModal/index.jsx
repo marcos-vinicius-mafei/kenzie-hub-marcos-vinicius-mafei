@@ -60,7 +60,8 @@ const EditModal = ({toggleEdit,current}) =>{
        .then(res=>{toast.success('Informações atualizadas',{
            theme:'dark'
        })
-       toggleEdit()
+            setAnime('hide 3s')
+            setTimeout(toggleEdit,1000)
        })
        .catch(err=>toast.error('Ops! Algo deu errado',{
            theme:'dark'
@@ -76,7 +77,8 @@ const EditModal = ({toggleEdit,current}) =>{
         .then(res=>{toast.success('Tech excluída',{
             theme:'dark'
         })
-            toggleEdit()
+            setAnime('hide 3s')
+            setTimeout(toggleEdit,1000)
         })
         .catch(err=>toast.error('Ops! Algo deu errado',{
             theme:'dark'
