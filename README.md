@@ -1,7 +1,7 @@
 <h1>Kenzie Hub</h1>
 
 <h2>Techs</h2>
-*ReactJs
++ ReactJs +
 *Styled Components
 *Framer Motion
 
